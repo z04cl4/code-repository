@@ -21,7 +21,7 @@ inline void solve(){
 	int n, x, y, sum = 0;
 	cin >> n >> x >> y;
 	vector<int> arr(n);
-	for(int i = 0; i < n; ++i) cin >> arr[i], sum += arr[i];
+	for(int &i : arr) cin >> i, sum += i;
 	sort(all(arr));
 	int ans = 0;
 	for(int i = 0; i < n; ++i){
@@ -33,6 +33,14 @@ inline void solve(){
 	}
 	cout << ans << '\n';
 }
+
+/*
+x <= sum - arr[i] - arr[j] <= y;
+x <= sum - arr[i] - arr[j] <= y;
+sum - y <= arr[i] + arr[j] <= sum - x;
+sum - y - arr[i] <= arr[j] <= sum - x - arr[i];
+枚舉arr[i]得到左右界即可得ans
+*/
 
 signed main(){
 	Bbicorz;
